@@ -1,0 +1,30 @@
+# Secrets
+secrets.yaml
+
+# Nabu Casa cloud credentials
+.cloud/
+
+# Database and logs
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# Runtime state
+.storage/
+.HA_VERSION
+.ha_run.lock
+
+# SSH keys
+.ssh/
+
+# Cache and temp
+__pycache__/
+*.pyc
+tts/
+.uuid
+image/
+
+# Zigbee state
+zigbee.db*
+home-assistant.log*
