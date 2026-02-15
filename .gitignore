@@ -9,9 +9,9 @@ secrets.yaml
 *.db-shm
 *.db-wal
 *.log
+home-assistant.log*
 
 # Runtime state
-.storage/
 .HA_VERSION
 .ha_run.lock
 
@@ -25,6 +25,13 @@ tts/
 .uuid
 image/
 
-# Zigbee state
+# Zigbee database (binary, changes constantly)
 zigbee.db*
-home-assistant.log*
+
+# Storage - exclude most but keep important registries
+.storage/*
+!.storage/core.device_registry
+!.storage/core.entity_registry
+!.storage/core.area_registry
+!.storage/core.config_entries
+!.storage/lovelace_dashboards
