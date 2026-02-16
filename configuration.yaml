@@ -9,3 +9,10 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+# Git backup shell commands
+shell_command:
+  git_add: 'cd /config && git add -A'
+  git_diff: 'cd /config && git diff --cached --stat'
+  git_commit: 'cd /config && git commit -m "{{ message }}" || true'
+  git_push: 'cd /config && git push origin main'

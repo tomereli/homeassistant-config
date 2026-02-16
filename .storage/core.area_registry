@@ -112,8 +112,8 @@
       },
       {
         "aliases": [
-          "מסדרון",
-          "Corridor"
+          "Corridor",
+          "מסדרון"
         ],
         "floor_id": null,
         "humidity_entity_id": null,
@@ -130,14 +130,14 @@
         "aliases": [],
         "floor_id": null,
         "humidity_entity_id": null,
-        "icon": null,
-        "id": "knysh",
+        "icon": "mdi:server",
+        "id": "tech_closet",
         "labels": [],
-        "name": "כניסה",
+        "name": "Tech Closet",
         "picture": null,
         "temperature_entity_id": null,
-        "created_at": "2026-02-03T08:01:44.995272+00:00",
-        "modified_at": "2026-02-03T08:01:44.995281+00:00"
+        "created_at": "2026-02-15T15:56:18.891181+00:00",
+        "modified_at": "2026-02-15T15:56:18.891189+00:00"
       }
     ]
   }
