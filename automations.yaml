@@ -1,28 +1,31 @@
 - id: git_backup_nightly
-  alias: "Git Backup with AI Commit Message"
-  description: "Nightly backup to GitHub with AI commit message"
+  alias: Git Backup with AI Commit Message
+  description: Nightly backup to GitHub with AI commit message
   trigger:
-    - platform: time
-      at: "03:17:00"
+  - platform: time
+    at: 03:17:00
   action:
-    - service: shell_command.git_add
-    - delay:
-        seconds: 2
-    - service: shell_command.git_diff
-      response_variable: git_diff_output
-    - condition: template
-      value_template: "{{ git_diff_output['stdout'] | length > 0 }}"
-    - service: ai_task.generate_data
-      data:
-        entity_id: ai_task.google_ai_task
-        task_name: "Generate git commit message"
-        instructions: >
-          Generate a concise git commit message (max 72 chars) for these Home Assistant config changes. Be specific about what changed. No quotes around the message. Changes: {{ git_diff_output['stdout'] }}
-      response_variable: ai_response
-    - service: shell_command.git_commit
-      data:
-        message: "{{ ai_response.data.text | default('Auto-backup') }}"
-    - delay:
-        seconds: 2
-    - service: shell_command.git_push
+  - service: shell_command.git_add
+  - delay:
+      seconds: 2
+  - service: shell_command.git_diff
+    response_variable: git_diff_output
+  - condition: template
+    value_template: '{{ git_diff_output[''stdout''] | length > 0 }}'
+  - service: ai_task.generate_data
+    data:
+      entity_id: ai_task.google_ai_task
+      task_name: Generate git commit message
+      instructions: 'Generate a concise git commit message (max 72 chars) for these
+        Home Assistant config changes. Be specific about what changed. No quotes around
+        the message. Changes: {{ git_diff_output[''stdout''] }}
+
+        '
+    response_variable: ai_response
+  - service: shell_command.git_commit
+    data:
+      message: '{{ ai_response.data.text | default(''Auto-backup'') }}'
+  - delay:
+      seconds: 2
+  - service: shell_command.git_push
   mode: single

@@ -8,6 +8,7 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+stream:
 
 # Git backup shell commands
 shell_command:

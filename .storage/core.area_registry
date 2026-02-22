@@ -138,6 +138,19 @@
         "temperature_entity_id": null,
         "created_at": "2026-02-15T15:56:18.891181+00:00",
         "modified_at": "2026-02-15T15:56:18.891189+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": null,
+        "id": "main",
+        "labels": [],
+        "name": "Main",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-02-18T15:40:27.026416+00:00",
+        "modified_at": "2026-02-18T15:40:27.026423+00:00"
       }
     ]
   }

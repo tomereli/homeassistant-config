@@ -1,0 +1,44 @@
+disarm_all:
+  sequence:
+  - action: alarm_control_panel.alarm_disarm
+    metadata: {}
+    target:
+      entity_id:
+      - alarm_control_panel.doorbell_repeater_aa37_security_system
+      - alarm_control_panel.camera_hub_g3_547b_security_system
+    data: {}
+  alias: Disarm All
+  description: ''
+arm_all_home:
+  sequence:
+  - action: alarm_control_panel.alarm_arm_home
+    metadata: {}
+    target:
+      entity_id:
+      - alarm_control_panel.doorbell_repeater_aa37_security_system
+      - alarm_control_panel.camera_hub_g3_547b_security_system
+    data: {}
+  alias: Arm All Home
+  description: ''
+arm_all_away:
+  sequence:
+  - action: alarm_control_panel.alarm_arm_away
+    metadata: {}
+    target:
+      entity_id:
+      - alarm_control_panel.doorbell_repeater_aa37_security_system
+      - alarm_control_panel.camera_hub_g3_547b_security_system
+    data: {}
+  alias: Arm All Away
+  description: ''
+arm_all_night:
+  sequence:
+  - action: alarm_control_panel.alarm_arm_night
+    metadata: {}
+    target:
+      entity_id:
+      - alarm_control_panel.doorbell_repeater_aa37_security_system
+      - alarm_control_panel.camera_hub_g3_547b_security_system
+    data: {}
+  alias: Arm All Night
+  description: ''
