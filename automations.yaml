@@ -29,3 +29,37 @@
       seconds: 2
   - service: shell_command.git_push
   mode: single
+- id: '1771853128981'
+  alias: 'Alarm: Away When Everyone Leaves'
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - person.tomer
+    - person.masha
+    to: not_home
+  conditions:
+  - condition: template
+    value_template: '{{ states.person | selectattr(''state'', ''eq'', ''home'') |
+      list | length == 0 }}
+
+      '
+  actions:
+  - action: alarm_control_panel.alarm_arm_away
+    target:
+      entity_id: alarm_control_panel.home_alarm
+  mode: single
+- id: '1771853172731'
+  alias: 'Alarm: Home When Someone Arrives'
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - person.tomer
+    - person.masha
+    to: home
+  actions:
+  - action: alarm_control_panel.alarm_arm_home
+    target:
+      entity_id: alarm_control_panel.home_alarm
+  mode: single
