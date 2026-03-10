@@ -24,7 +24,7 @@
     response_variable: ai_response
   - service: shell_command.git_commit
     data:
-      message: '{{ ai_response.data.text | default(''Auto-backup'') }}'
+      message: '{{ ai_response.data | default(''Auto-backup'') }}'
   - delay:
       seconds: 2
   - service: shell_command.git_push
