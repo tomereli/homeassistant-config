@@ -42,3 +42,47 @@ arm_all_night:
     data: {}
   alias: Arm All Night
   description: ''
+open_robot_garage_safe:
+  alias: Open Robot Garage (Safe)
+  sequence:
+  - condition: state
+    entity_id: input_select.garage_door_state
+    state: closed
+  - target:
+      entity_id: input_select.garage_door_state
+    data:
+      option: opening
+    action: input_select.select_option
+  - target:
+      entity_id: scene.open_robot_garage
+    action: scene.turn_on
+  - delay:
+      seconds: 12
+  - target:
+      entity_id: input_select.garage_door_state
+    data:
+      option: open
+    action: input_select.select_option
+  mode: single
+close_robot_garage_safe:
+  alias: Close Robot Garage (Safe)
+  sequence:
+  - condition: state
+    entity_id: input_select.garage_door_state
+    state: open
+  - target:
+      entity_id: input_select.garage_door_state
+    data:
+      option: closing
+    action: input_select.select_option
+  - target:
+      entity_id: scene.close_robot_garage
+    action: scene.turn_on
+  - delay:
+      seconds: 12
+  - target:
+      entity_id: input_select.garage_door_state
+    data:
+      option: closed
+    action: input_select.select_option
+  mode: single

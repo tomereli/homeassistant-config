@@ -23,7 +23,7 @@ template:
         code_arm_required: false
         code_format: no_code
         state: >
-          {% set s1 = states('alarm_control_panel.camera_hub_g3_547b_security_system') %}
+          {% set s1 = states('alarm_control_panel.camera_hub_g3_547b_security_system_2') %}
           {% set s2 = states('alarm_control_panel.doorbell_repeater_aa37_security_system') %}
           {% if s1 == s2 %}{{ s1 }}
           {% else %}armed_custom_bypass
@@ -32,23 +32,23 @@ template:
           - action: alarm_control_panel.alarm_arm_away
             target:
               entity_id:
-                - alarm_control_panel.camera_hub_g3_547b_security_system
+                - alarm_control_panel.camera_hub_g3_547b_security_system_2
                 - alarm_control_panel.doorbell_repeater_aa37_security_system
         arm_home:
           - action: alarm_control_panel.alarm_arm_home
             target:
               entity_id:
-                - alarm_control_panel.camera_hub_g3_547b_security_system
+                - alarm_control_panel.camera_hub_g3_547b_security_system_2
                 - alarm_control_panel.doorbell_repeater_aa37_security_system
         arm_night:
           - action: alarm_control_panel.alarm_arm_night
             target:
               entity_id:
-                - alarm_control_panel.camera_hub_g3_547b_security_system
+                - alarm_control_panel.camera_hub_g3_547b_security_system_2
                 - alarm_control_panel.doorbell_repeater_aa37_security_system
         disarm:
           - action: alarm_control_panel.alarm_disarm
             target:
               entity_id:
-                - alarm_control_panel.camera_hub_g3_547b_security_system
+                - alarm_control_panel.camera_hub_g3_547b_security_system_2
                 - alarm_control_panel.doorbell_repeater_aa37_security_system
