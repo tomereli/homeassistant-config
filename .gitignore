@@ -28,14 +28,18 @@ image/
 # Zigbee database (binary, changes constantly)
 zigbee.db*
 
-# Storage - exclude most but keep important registries
+# Storage - exclude most but keep important registries and dashboards
 .storage/*
 !.storage/core.device_registry
 !.storage/core.entity_registry
 !.storage/core.area_registry
-!.storage/core.config_entries
-!.storage/lovelace_dashboards
+!.storage/lovelace*
+
+# Never track secret-heavy HA integration config
+.storage/core.config_entries
 
 # ignore cache
 .cache/
 **/.cache/
+deps/
+.gitignore.bak.*
