@@ -13,7 +13,7 @@ stream:
 # Git backup shell commands
 shell_command:
   git_add: '/bin/bash -c "cd /config && /usr/bin/git add -A"'
-  git_diff: '/bin/bash -c "cd /config && /usr/bin/git diff --cached --stat"'
+  git_diff: '/bin/bash -c "cd /config && /usr/bin/git diff --cached | head -c 120000"'
   git_commit: '/bin/bash -c "cd /config && /usr/bin/git commit -m \"{{ message }}\" || true"'
   git_push: '/bin/bash -c "cd /config && /usr/bin/git push origin main"'
 
