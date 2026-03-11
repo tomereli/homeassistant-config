@@ -35,3 +35,7 @@ zigbee.db*
 !.storage/core.area_registry
 !.storage/core.config_entries
 !.storage/lovelace_dashboards
+
+# ignore cache
+.cache/
+**/.cache/
