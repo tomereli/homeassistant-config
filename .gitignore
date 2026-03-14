@@ -30,8 +30,6 @@ zigbee.db*
 
 # Storage - exclude most but keep important registries and dashboards
 .storage/*
-!.storage/core.device_registry
-!.storage/core.entity_registry
 !.storage/core.area_registry
 !.storage/lovelace*
 
@@ -43,3 +41,5 @@ zigbee.db*
 **/.cache/
 deps/
 .gitignore.bak.*
+.storage/core.device_registry
+.storage/core.entity_registry
