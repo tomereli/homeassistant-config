@@ -16,21 +16,33 @@
       entity_id: ai_task.google_ai_task
       task_name: Generate git commit message
       instructions: 'Write a git commit message based ONLY on this diff. Format: Line
-        1: imperative subject, max 72 chars, no quotes. Then blank line. Then 1-3
-        bullet points (max 100 chars each) explaining main changes. If changes look
+        1: imperative subject, max 72 chars, no quotes, no apostrophes. Blank line.
+        Then 1-3 bullet lines starting with dash, max 100 chars each. If changes look
         like debugging, experimenting, or have no clear intent, prefix line 1 with
-        [REVIEW]. If changes are only cache/storage files, say so in one bullet and
-        focus on any real config changes. Diff: {{ git_diff_output[''stdout''] }}
+        [REVIEW]. If changes are only cache/storage/timestamps, say so briefly. No
+        special characters. No quotes. No apostrophes. Diff: {{ git_diff_output[''stdout'']
+        }}
 
         '
     response_variable: ai_response
     action: ai_task.generate_data
-  - data:
-      message: '{{ ai_response.data | default(''Auto-backup'') }}'
-    action: shell_command.git_commit
+  - action: shell_command.git_write_msg
+    data:
+      message: '{{ ai_response.data.text | default(''Auto-backup'') }}'
   - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - action: shell_command.git_commit_file
+  - delay:
+      hours: 0
+      minutes: 0
       seconds: 2
+      milliseconds: 0
   - action: shell_command.git_push
+    metadata: {}
+    data: {}
   mode: single
 - id: '1771853128981'
   alias: 'Alarm: Away When Everyone Leaves'
