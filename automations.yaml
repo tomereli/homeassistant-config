@@ -41,8 +41,7 @@
       seconds: 2
       milliseconds: 0
   - action: shell_command.git_push
-    metadata: {}
-    data: {}
+    response_variable: git_push_output
   mode: single
 - id: '1771853128981'
   alias: 'Alarm: Away When Everyone Leaves'
