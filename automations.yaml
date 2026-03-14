@@ -15,11 +15,12 @@
   - data:
       entity_id: ai_task.google_ai_task
       task_name: Generate git commit message
-      instructions: 'Write a git commit in this exact format: Line 1: a specific imperative
-        subject <= 72 chars (no quotes). Then a blank line. Then 1-3 bullet points
-        explaining the main changes (each bullet <= 100 chars). If changes are noisy
-        (cache/storage), mention it in one bullet and focus on the real intent. Base
-        everything only on this diff: {{ git_diff_output[''stdout''] }}
+      instructions: 'Write a git commit message based ONLY on this diff. Format: Line
+        1: imperative subject, max 72 chars, no quotes. Then blank line. Then 1-3
+        bullet points (max 100 chars each) explaining main changes. If changes look
+        like debugging, experimenting, or have no clear intent, prefix line 1 with
+        [REVIEW]. If changes are only cache/storage files, say so in one bullet and
+        focus on any real config changes. Diff: {{ git_diff_output[''stdout''] }}
 
         '
     response_variable: ai_response
