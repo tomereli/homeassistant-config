@@ -28,7 +28,7 @@
     action: ai_task.generate_data
   - action: shell_command.git_write_msg
     data:
-      message: '{{ ai_response.data.text | default(''Auto-backup'') }}'
+      message: '{{ ai_response.data | default(''Auto-backup'') }}'
   - delay:
       hours: 0
       minutes: 0
