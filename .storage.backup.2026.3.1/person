@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "noobchim",
+        "name": "noobchim",
+        "user_id": "592a0c90aadd4269b011afee3ebcbd01",
+        "device_trackers": [],
+        "picture": null
+      },
+      {
+        "id": "masha",
+        "name": "Masha",
+        "device_trackers": [
+          "device_tracker.pixel_8_pro"
+        ],
+        "user_id": "11558864d6b84dafb7b997d54949c744",
+        "picture": "/api/image/serve/4edf1ab5f293e0bb40f8f4c3189300b4/512x512"
+      },
+      {
+        "id": "tomer",
+        "name": "Tomer",
+        "device_trackers": [
+          "device_tracker.tomers_iphone",
+          "device_tracker.tomers_ipad"
+        ],
+        "user_id": "33c44ca7fff24fccbed4a95c04ff0e8d",
+        "picture": "/api/image/serve/bfe811dc4a21c5bc53e7fc6a5c0107bc/512x512"
+      }
+    ]
+  }
+}

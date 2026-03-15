@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "minor_version": 9,
+  "key": "core.area_registry",
+  "data": {
+    "areas": [
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:sofa",
+        "id": "living_room",
+        "labels": [],
+        "name": "Living Room",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:38:59.679215+00:00",
+        "modified_at": "2026-01-11T23:38:59.679217+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:stove",
+        "id": "kitchen",
+        "labels": [],
+        "name": "Kitchen",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:38:59.679330+00:00",
+        "modified_at": "2026-01-11T23:38:59.679332+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:bed",
+        "id": "bedroom",
+        "labels": [],
+        "name": "Bedroom",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:38:59.679390+00:00",
+        "modified_at": "2026-01-11T23:38:59.679391+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:door",
+        "id": "entrance",
+        "labels": [],
+        "name": "Entrance",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:46:49.962685+00:00",
+        "modified_at": "2026-01-11T23:46:49.962692+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:crosshairs-question",
+        "id": "unknown",
+        "labels": [],
+        "name": "Unknown",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:47:42.448608+00:00",
+        "modified_at": "2026-01-11T23:47:42.448619+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:teddy-bear",
+        "id": "kids_room",
+        "labels": [],
+        "name": "kids room",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-11T23:52:39.798441+00:00",
+        "modified_at": "2026-01-11T23:52:39.798444+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:ceiling-light-multiple-outline",
+        "id": "gvpy_tvrh_slvn",
+        "labels": [],
+        "name": "Living Room Lights",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-12T19:56:50.526228+00:00",
+        "modified_at": "2026-01-13T15:38:58.981050+00:00"
+      },
+      {
+        "aliases": [
+          "work room"
+        ],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:chair-rolling",
+        "id": "study",
+        "labels": [],
+        "name": "Study",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-01-13T15:36:51.152992+00:00",
+        "modified_at": "2026-01-13T15:36:51.153001+00:00"
+      },
+      {
+        "aliases": [
+          "Corridor",
+          "מסדרון"
+        ],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:align-horizontal-distribute",
+        "id": "hallway",
+        "labels": [],
+        "name": "Hallway",
+        "picture": "/api/image/serve/6bcf27760229410c32888822f555405a/512x512",
+        "temperature_entity_id": null,
+        "created_at": "2026-01-13T15:59:25.643189+00:00",
+        "modified_at": "2026-01-13T15:59:25.643198+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": "mdi:server",
+        "id": "tech_closet",
+        "labels": [],
+        "name": "Tech Closet",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-02-15T15:56:18.891181+00:00",
+        "modified_at": "2026-02-15T15:56:18.891189+00:00"
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "humidity_entity_id": null,
+        "icon": null,
+        "id": "main",
+        "labels": [],
+        "name": "Main",
+        "picture": null,
+        "temperature_entity_id": null,
+        "created_at": "2026-02-18T15:40:27.026416+00:00",
+        "modified_at": "2026-02-18T15:40:27.026423+00:00"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "input_select",
+  "data": {
+    "items": [
+      {
+        "id": "alarm_control",
+        "name": "Alarm Control",
+        "icon": "mdi:shield-home-outline",
+        "options": [
+          "Armed Away",
+          "Armed Home",
+          "Armed Night",
+          "Disarmed"
+        ]
+      },
+      {
+        "id": "garage_door_state",
+        "name": "Garage Door State",
+        "icon": "mdi:state-machine",
+        "options": [
+          "open",
+          "closed",
+          "opening",
+          "closing",
+          "unknown"
+        ]
+      }
+    ]
+  }
+}

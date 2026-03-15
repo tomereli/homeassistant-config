@@ -56,22 +56,6 @@
                 {
                   "type": "alarm-control-panel",
                   "entity": "alarm_control_panel.home_alarm"
-                },
-                {
-                  "type": "template",
-                  "icon": "mdi:lightbulb-multiple-off",
-                  "icon_color": "{% if is_state('light.home_assistant_connect_zbt_2_zbt_all_lights', 'on') %}\n  amber\n{% else %}\n  grey\n{% endif %}",
-                  "tap_action": {
-                    "action": "call-service",
-                    "service": "light.turn_off",
-                    "target": {
-                      "entity_id": "light.home_assistant_connect_zbt_2_zbt_all_lights"
-                    }
-                  },
-                  "hold_action": {
-                    "action": "more-info"
-                  },
-                  "entity": "light.home_assistant_connect_zbt_2_zbt_all_lights"
                 }
               ]
             },

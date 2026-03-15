@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "id": "9881df202f6a456f8cd3bd3575e90877",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375511",
+        "type": "module"
+      },
+      {
+        "id": "d9d8973aec644c81bb0f1782ca523f43",
+        "url": "/hacsfiles/swipe-card/swipe-card.js?hacstag=192732887500",
+        "type": "module"
+      },
+      {
+        "id": "e0a624a915e94efbbdfaeb08e7dff147",
+        "url": "/hacsfiles/status-card/status-card.js?hacstag=878557286323",
+        "type": "module"
+      },
+      {
+        "id": "1c49c7517a4c4611b0357f4ec6b1a088",
+        "url": "/hacsfiles/custom-icons/custom-icons.js?hacstag=491465538037",
+        "type": "module"
+      },
+      {
+        "id": "544d62acb25e455e8b7a490c405ae02b",
+        "url": "/hacsfiles/stack-in-card/stack-in-card.js?hacstag=248954055020",
+        "type": "module"
+      },
+      {
+        "id": "c631c34c64194a668a8a49a74ce27ac9",
+        "url": "/hacsfiles/LG-WebOS-Remote-Control/lg-remote-control.js?hacstag=257005990204",
+        "type": "module"
+      },
+      {
+        "id": "271a14a655b94df2ad084e644b50c251",
+        "url": "/hacsfiles/config-template-card/config-template-card.js?hacstag=172177543136",
+        "type": "module"
+      },
+      {
+        "id": "2b47e42046694cd5a78894a1cdfb80e9",
+        "url": "/hacsfiles/kiosk-mode/kiosk-mode.js?hacstag=4973191281100",
+        "type": "module"
+      },
+      {
+        "id": "ff42471e657a44cf982ee405acabfc80",
+        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994232",
+        "type": "module"
+      },
+      {
+        "id": "da6978b758ff49e48c39129a745f9904",
+        "url": "/hacsfiles/ha-floorplan/floorplan.js?hacstag=188323494114",
+        "type": "module"
+      },
+      {
+        "id": "a2a25e0c4677478185f6df762af78713",
+        "url": "/hacsfiles/battery-state-card/battery-state-card.js?hacstag=256292682330",
+        "type": "module"
+      },
+      {
+        "id": "940a7bd01a67409798db74d85e9e5412",
+        "url": "/hacsfiles/vacuum-card/vacuum-card.js?hacstag=2612912952120",
+        "type": "module"
+      },
+      {
+        "id": "2defa74032294733b961fa53f548b339",
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037451",
+        "type": "module"
+      },
+      {
+        "id": "eb5d666a9beb4b74be2ac1c63899e18e",
+        "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001750",
+        "type": "module"
+      },
+      {
+        "id": "428dc0f6613f492c894134fa1922f89e",
+        "url": "/hacsfiles/clock-weather-card/clock-weather-card.js?hacstag=522634019292",
+        "type": "module"
+      },
+      {
+        "id": "34d6b2e06625425da6a91fc099a4874d",
+        "url": "/hacsfiles/mushroom-strategy/mushroom-strategy.js?hacstag=619284862250",
+        "type": "module"
+      },
+      {
+        "id": "6d2ef71eab134c42a67214f5fe41c000",
+        "url": "/hacsfiles/lovelace-plotly-graph-card/plotly-graph-card.js?hacstag=413812496335",
+        "type": "module"
+      },
+      {
+        "id": "b4db4328dcf9499fa76b71119917d32f",
+        "url": "/hacsfiles/lovelace-mushroom-better-sliders/mushroom.js?hacstag=586363416302",
+        "type": "module"
+      }
+    ]
+  }
+}

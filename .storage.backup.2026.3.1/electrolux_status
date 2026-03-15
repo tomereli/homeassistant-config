@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "electrolux_status",
+  "data": {
+    "accounts": {
+      "dG9tZXJlbGl5YWh1MUBnbWFpbC5jb20=": {
+        "token": {
+          "accessToken": "eyJraWQiOiIxMGZhMWQwOWY4YjM2OGFjYmE4YmRiNDYxOTFmZmVhODE1MmZiM2YzZjQ5N2RhZjk1OWFjNWIzNDM5ZDI3OGY0IiwiYWxnIjoiUlMyNTYiLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjE3NzM1MjA4MTgsImlzcyI6Imh0dHBzOi8vYXBpLm9jcC5lbGVjdHJvbHV4Lm9uZS9vbmUtYWNjb3VudC1hdXRob3JpemF0aW9uIiwiYXVkIjpbImVsZWN0cm9sdXhfb2NwIiwiaHR0cHM6Ly9hcGkub2NwLmVsZWN0cm9sdXgub25lIl0sImV4cCI6MTc3MzU2NDAxOCwic3ViIjoiZmIxNmFjMDhjMThmNDBiNzg4NzI1Yjg3OTEzOTc0YmMiLCJhenAiOiJFbHhPbmVBcHAiLCJzY29wZSI6ImVsdXhkZWI6KjoqOiogZWx1eGlvdDoqOio6KiBlbWFpbCBvZmZsaW5lX2FjY2VzcyIsIm9jYyI6IklMIn0.piMWrmCakMx_-T1pmQb9MPUqZRIXSXDANL-PEJLRlB8Q5uvsxYoGQa7rmS7_KGT0WNArTh45o_HxvsxOygiZxAaPQVqfPckZ-Kgy2oPYDnDoymMjYbFaxDPTGdMPgI0YZrvF-6GFIkNFLsUbDf0g6fmf_5WGTBoyPQPd93KNh_RLOTzJ82eNlim8hQb-g6dyvjP29u6E27LrHqHeekhtf9cuxxBOpCyQQbsne2Rze-PzkwKBNyMD6JqHG8okkvDERxLryJfx5ZLm4PmfUesP0wGdF7YtPa_zIhKa7hKMX6-PJEtdQQoZOtGwG6I-nSqC1DmMeyWv5WL7rhhX6kkhMQ",
+          "expiresIn": 43200,
+          "tokenType": "Bearer",
+          "refreshToken": "gGSyb67Y3SC6QqwC1CF30PfbtVVswSJtI7bkPi46cKJ8EpgLJW4DbeX61UwOS0H5gFqYVhb3k1vo6drXSXOtbknIt2HIAg0OEqcPt5Nz9MsEF3nHjbplOPNbCkGBnD1J",
+          "scope": "eluxdeb:*:*:* eluxiot:*:*:* email offline_access"
+        },
+        "expiresAt": "2026-03-15T10:40:18.407997"
+      }
+    }
+  }
+}

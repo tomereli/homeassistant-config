@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "zone",
+  "data": {
+    "items": [
+      {
+        "id": "work_masha",
+        "latitude": 32.0709956,
+        "longitude": 34.7852875,
+        "name": "Masha’s Work",
+        "icon": "mdi:briefcase",
+        "passive": false,
+        "radius": 100.0
+      },
+      {
+        "id": "dyrh_yshnh",
+        "latitude": 32.06852129179018,
+        "longitude": 34.785207039205986,
+        "name": "Old Home",
+        "icon": "cil:home-export-no-roof-outline",
+        "passive": false,
+        "radius": 30.0
+      },
+      {
+        "id": "tomers_work",
+        "latitude": 32.0723727501089,
+        "longitude": 34.7947796191237,
+        "name": "Tomer’s work",
+        "icon": "mdi:briefcase",
+        "passive": false,
+        "radius": 100.0
+      },
+      {
+        "id": "work_tomer",
+        "latitude": 32.0723727501089,
+        "longitude": 34.7947796191237,
+        "name": "Work Tomer",
+        "icon": "mdi:briefcase",
+        "passive": false,
+        "radius": 100.0
+      }
+    ]
+  }
+}

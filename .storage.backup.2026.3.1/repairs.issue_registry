@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "repairs.issue_registry",
+  "data": {
+    "issues": [
+      {
+        "created": "2026-02-21T14:30:12.431651+00:00",
+        "dismissed_version": null,
+        "domain": "hacs",
+        "is_persistent": false,
+        "issue_id": "restart_required_202987887_tags/v4.2.2"
+      },
+      {
+        "created": "2026-03-04T09:04:03.632750+00:00",
+        "dismissed_version": null,
+        "domain": "hacs",
+        "is_persistent": false,
+        "issue_id": "restart_required_202987887_tags/v4.2.3"
+      },
+      {
+        "created": "2026-03-14T11:15:46.147199+00:00",
+        "dismissed_version": null,
+        "domain": "cloud",
+        "is_persistent": false,
+        "issue_id": "connection_error_2026-03-15 00:00:00+00:00"
+      }
+    ]
+  }
+}

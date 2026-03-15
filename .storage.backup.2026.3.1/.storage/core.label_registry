@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "core.label_registry",
+  "data": {
+    "labels": [
+      {
+        "color": "accent",
+        "description": null,
+        "icon": "mdi:lightbulb-spot",
+        "label_id": "spots",
+        "name": "spots",
+        "created_at": "2026-01-29T13:54:59.642747+00:00",
+        "modified_at": "2026-01-29T13:54:59.642755+00:00"
+      },
+      {
+        "color": "red",
+        "description": "ZBT-2 Device",
+        "icon": "mdi:zigbee",
+        "label_id": "zbt_2",
+        "name": "ZBT-2",
+        "created_at": "2026-01-29T14:09:39.453463+00:00",
+        "modified_at": "2026-01-29T14:09:39.453472+00:00"
+      },
+      {
+        "color": "amber",
+        "description": "trimless linear light",
+        "icon": "mdi:lightbulb-fluorescent-tube",
+        "label_id": "trimless_linear",
+        "name": "trimless-linear",
+        "created_at": "2026-02-02T09:15:52.380767+00:00",
+        "modified_at": "2026-02-02T09:15:52.380777+00:00"
+      },
+      {
+        "color": "black",
+        "description": "magnetic trimless R shaped profile",
+        "icon": "mdi:magnet",
+        "label_id": "trimless",
+        "name": "trimless",
+        "created_at": "2026-02-02T09:17:30.195291+00:00",
+        "modified_at": "2026-02-02T09:17:30.195300+00:00"
+      },
+      {
+        "color": "accent",
+        "description": null,
+        "icon": "mdi:track-light",
+        "label_id": "gimbal",
+        "name": "gimbal",
+        "created_at": "2026-02-02T09:23:25.635380+00:00",
+        "modified_at": "2026-02-02T09:23:25.635389+00:00"
+      },
+      {
+        "color": "cyan",
+        "description": null,
+        "icon": "mdi:robot",
+        "label_id": "robot",
+        "name": "robot",
+        "created_at": "2026-02-15T06:29:17.683128+00:00",
+        "modified_at": "2026-02-15T06:29:17.683136+00:00"
+      },
+      {
+        "color": "primary",
+        "description": null,
+        "icon": "mdi:garage",
+        "label_id": "garage",
+        "name": "garage",
+        "created_at": "2026-02-15T06:34:40.501079+00:00",
+        "modified_at": "2026-02-15T06:34:40.501087+00:00"
+      },
+      {
+        "color": "orange",
+        "description": null,
+        "icon": "mdi:ceiling-light-multiple",
+        "label_id": "zbt_group",
+        "name": "ZBT Lights Group",
+        "created_at": "2026-02-20T18:26:41.193501+00:00",
+        "modified_at": "2026-02-20T18:27:19.798072+00:00"
+      },
+      {
+        "color": null,
+        "description": null,
+        "icon": "mdi:script-text",
+        "label_id": "script",
+        "name": "script",
+        "created_at": "2026-02-21T16:09:13.794608+00:00",
+        "modified_at": "2026-02-21T16:09:13.794617+00:00"
+      }
+    ]
+  }
+}
