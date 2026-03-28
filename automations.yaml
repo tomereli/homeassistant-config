@@ -77,3 +77,82 @@
     target:
       entity_id: alarm_control_panel.home_alarm
   mode: single
+- id: '1774718522180'
+  alias: Kitchen Switch - Cool White
+  description: ''
+  triggers:
+  - event_type: zha_event
+    event_data:
+      device_id: 4024978ac5892a0ba3f15f8ed1b1d4ca
+      command: remote_button_double_press
+      endpoint_id: 2
+    trigger: event
+  actions:
+  - target:
+      entity_id:
+      - light.home_assistant_connect_zbt_2_kitchen_lights_all
+    data:
+      color_temp: 153
+    action: light.turn_on
+- id: '1774718613229'
+  alias: Kitchen Switch - Toggle Lights
+  description: ''
+  triggers:
+  - event_type: zha_event
+    event_data:
+      device_id: 4024978ac5892a0ba3f15f8ed1b1d4ca
+      command: remote_button_short_press
+      endpoint_id: 1
+    trigger: event
+  actions:
+  - target:
+      entity_id: light.home_assistant_connect_zbt_2_kitchen_lights_all
+    action: light.toggle
+- id: '1774718636719'
+  alias: Kitchen Switch - Full Brightness
+  description: ''
+  triggers:
+  - event_type: zha_event
+    event_data:
+      device_id: 4024978ac5892a0ba3f15f8ed1b1d4ca
+      command: remote_button_double_press
+      endpoint_id: 1
+    trigger: event
+  actions:
+  - target:
+      entity_id: light.home_assistant_connect_zbt_2_kitchen_lights_all
+    data:
+      brightness_pct: 100
+    action: light.turn_on
+- id: '1774718658511'
+  alias: Kitchen Switch - Dim
+  description: ''
+  triggers:
+  - event_type: zha_event
+    event_data:
+      device_id: 4024978ac5892a0ba3f15f8ed1b1d4ca
+      command: remote_button_long_press
+      endpoint_id: 1
+    trigger: event
+  actions:
+  - target:
+      entity_id: light.home_assistant_connect_zbt_2_kitchen_lights_all
+    data:
+      brightness_pct: 20
+    action: light.turn_on
+- id: '1774718678139'
+  alias: Kitchen Switch - Warm White
+  description: ''
+  triggers:
+  - event_type: zha_event
+    event_data:
+      device_id: 4024978ac5892a0ba3f15f8ed1b1d4ca
+      command: remote_button_short_press
+      endpoint_id: 2
+    trigger: event
+  actions:
+  - target:
+      entity_id: light.home_assistant_connect_zbt_2_kitchen_lights_all
+    data:
+      color_temp: 500
+    action: light.turn_on
