@@ -54,6 +54,17 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "icon": "mdi:induction",
+                  "icon_color": "{% if is_state(\"switch.kyryym_power\", \"on\") %}red {% else %}grey{% endif %}",
+                  "content": "{% if is_state(\"switch.kyryym_power\", \"on\") %}Hob {% else %}Hob{% endif %}",
+                  "entity": "sensor.hob_operation_state",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/dashboard-floorplan/kitchen"
+                  }
+                },
+                {
                   "type": "alarm-control-panel",
                   "entity": "alarm_control_panel.home_alarm"
                 },
@@ -539,12 +550,32 @@
                 },
                 {
                   "type": "template",
+                  "icon": "mdi:induction",
+                  "icon_color": "{% if is_state(\"switch.kyryym_power\", \"on\") %}red {% else %}grey{% endif %}",
+                  "content": "{% if is_state(\"switch.kyryym_power\", \"on\") %}\n  Hob: {{ states(\"sensor.hob_operation_state\") | title }}\n{% else %}Hob Off{% endif %}",
+                  "entity": "sensor.hob_operation_state",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
                   "icon": "mdi:chef-hat",
                   "icon_color": "red",
                   "content": "AEG App",
                   "tap_action": {
                     "action": "url",
                     "url_path": "aeg://"
+                  }
+                },
+                {
+                  "type": "template",
+                  "icon": "mdi:home-switch",
+                  "icon_color": "cyan",
+                  "content": "Home Connect",
+                  "tap_action": {
+                    "action": "url",
+                    "url_path": "homeconnect://"
                   }
                 }
               ]
@@ -780,6 +811,57 @@
                       "type": "custom:mushroom-number-card",
                       "entity": "number.aeg_microwave_oven_upperoven_targetmicrowavepower",
                       "name": "Power W"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom:stack-in-card",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "Induction Hob",
+                  "secondary": "{% if is_state(\"switch.kyryym_power\", \"on\") %}\n  {{ states(\"sensor.hob_operation_state\") | title }}\n{% else %}Off{% endif %}",
+                  "icon": "mdi:induction",
+                  "icon_color": "{% if is_state(\"sensor.hob_operation_state\", \"run\") %}red{% elif is_state(\"switch.kyryym_power\", \"on\") %}orange{% else %}grey{% endif %}",
+                  "entity": "sensor.hob_operation_state",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "custom:mushroom-chips-card",
+                  "alignment": "start",
+                  "chips": [
+                    {
+                      "type": "entity",
+                      "entity": "switch.kyryym_power",
+                      "icon": "mdi:power"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "switch.kyryym_child_lock",
+                      "icon": "mdi:lock"
+                    },
+                    {
+                      "type": "conditional",
+                      "conditions": [
+                        {
+                          "condition": "numeric_state",
+                          "entity": "number.kyryym_alarm_clock",
+                          "above": 0
+                        }
+                      ],
+                      "chip": {
+                        "type": "template",
+                        "icon": "mdi:timer-outline",
+                        "content": "{{ states(\"number.kyryym_alarm_clock\") }}",
+                        "entity": "number.kyryym_alarm_clock",
+                        "tap_action": {
+                          "action": "more-info"
+                        }
+                      }
                     }
                   ]
                 }
