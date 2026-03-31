@@ -65,6 +65,17 @@
                   }
                 },
                 {
+                  "type": "template",
+                  "icon": "mdi:coffee",
+                  "icon_color": "{% if is_state(\"switch.la_minea_micra\", \"on\") %}brown {% else %}grey{% endif %}",
+                  "content": "{% if is_state(\"switch.la_minea_micra\", \"on\") %}Coffee {% else %}Coffee{% endif %}",
+                  "entity": "switch.la_minea_micra",
+                  "tap_action": {
+                    "action": "navigate",
+                    "navigation_path": "/dashboard-floorplan/kitchen"
+                  }
+                },
+                {
                   "type": "alarm-control-panel",
                   "entity": "alarm_control_panel.home_alarm"
                 },
@@ -178,6 +189,14 @@
                       "icon": "mdi:lightbulb-group",
                       "tap_action": null,
                       "action": "more-info"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_strips",
+                      "icon": "mdi:led-strip-variant",
+                      "tap_action": {
+                        "action": "more-info"
+                      }
                     },
                     {
                       "type": "entity",
@@ -523,6 +542,14 @@
                   "action": "more-info"
                 },
                 {
+                  "type": "entity",
+                  "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_strips",
+                  "icon": "mdi:led-strip-variant",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
                   "type": "template",
                   "icon": "mdi:stove",
                   "icon_color": "{% if is_state(\"sensor.aeg_oven_upperoven_appliancestate\", \"Running\") %}red{% elif is_state(\"sensor.aeg_oven_upperoven_appliancestate\", \"Ready To Start\") %}orange{% else %}grey{% endif %}",
@@ -560,6 +587,16 @@
                 },
                 {
                   "type": "template",
+                  "icon": "mdi:coffee",
+                  "icon_color": "{% if is_state(\"binary_sensor.la_minea_micra_brewing_active\", \"on\") %}red {% elif is_state(\"switch.la_minea_micra\", \"on\") %}brown {% else %}grey{% endif %}",
+                  "content": "{% if is_state(\"binary_sensor.la_minea_micra_brewing_active\", \"on\") %}Brewing {% elif is_state(\"switch.la_minea_micra\", \"on\") %}Micra On {% else %}Micra{% endif %}",
+                  "entity": "switch.la_minea_micra",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "template",
                   "icon": "mdi:chef-hat",
                   "icon_color": "red",
                   "content": "AEG App",
@@ -577,6 +614,16 @@
                     "action": "url",
                     "url_path": "homeconnect://"
                   }
+                },
+                {
+                  "type": "template",
+                  "icon": "mdi:coffee",
+                  "icon_color": "brown",
+                  "content": "LM App",
+                  "tap_action": {
+                    "action": "url",
+                    "url_path": "lamarzocco://"
+                  }
                 }
               ]
             },
@@ -585,84 +632,137 @@
               "title": "Lights"
             },
             {
-              "type": "custom:mushroom-light-card",
-              "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_all",
-              "name": "All Lights",
-              "icon": "mdi:lightbulb-group",
-              "show_brightness_control": true,
-              "show_color_temp_control": true,
-              "use_light_color": true
-            },
-            {
-              "type": "entities",
-              "entities": [
+              "type": "custom:stack-in-card",
+              "cards": [
                 {
-                  "type": "custom:fold-entity-row",
-                  "head": null,
-                  "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_spots",
-                  "name": "Spots",
-                  "icon": "mdi:lightbulb-spot",
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_all",
+                  "name": "All Lights",
+                  "icon": "mdi:lightbulb-group",
+                  "show_brightness_control": true,
+                  "show_color_temp_control": true,
+                  "use_light_color": true
+                },
+                {
+                  "type": "entities",
                   "entities": [
                     {
-                      "entity": "light.kitchen_lights_spot_1",
-                      "name": "Spot 1"
+                      "type": "custom:fold-entity-row",
+                      "head": null,
+                      "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_spots",
+                      "name": "Spots",
+                      "icon": "mdi:lightbulb-spot",
+                      "entities": [
+                        {
+                          "entity": "light.kitchen_lights_spot_1",
+                          "name": "Spot 1"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_spot_4",
+                          "name": "Spot 2"
+                        },
+                        {
+                          "entity": "light.tz3210_zdrhqmo0_ts0502b_13",
+                          "name": "Spot 3"
+                        },
+                        {
+                          "entity": "light.tz3210_zdrhqmo0_ts0502b_15",
+                          "name": "Spot 4"
+                        },
+                        {
+                          "entity": "light.tz3210_zdrhqmo0_ts0502b_16",
+                          "name": "Spot 5"
+                        },
+                        {
+                          "entity": "light.tz3210_zdrhqmo0_ts0502b_19",
+                          "name": "Spot 6"
+                        }
+                      ]
                     },
                     {
-                      "entity": "light.kitchen_lights_spot_4",
-                      "name": "Spot 2"
+                      "type": "custom:fold-entity-row",
+                      "head": null,
+                      "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_trimless",
+                      "name": "Trimless",
+                      "icon": "mdi:led-strip",
+                      "entities": [
+                        {
+                          "entity": "light.kitchen_lights_trimless_linear_1",
+                          "name": "Linear 1"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_trimless_linear_2",
+                          "name": "Linear 2"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_trimless_linear_3",
+                          "name": "Linear 3"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_trimless_linear_4",
+                          "name": "Linear 4"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_trimless_gimbal_1",
+                          "name": "Gimbal 1"
+                        },
+                        {
+                          "entity": "light.kitchen_lights_trimless_gimbal_2",
+                          "name": "Gimbal 2"
+                        },
+                        {
+                          "entity": "light.tz3210_uos3hl9x_ts0502b",
+                          "name": "Gimbal 3"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom:mushroom-title-card",
+              "title": "LED Strips"
+            },
+            {
+              "type": "custom:stack-in-card",
+              "cards": [
+                {
+                  "type": "custom:mushroom-light-card",
+                  "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_strips",
+                  "name": "All Strips",
+                  "icon": "mdi:led-strip-variant",
+                  "show_brightness_control": true,
+                  "use_light_color": true
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-light-card",
+                      "entity": "light.lights_kitchen_coffee_led",
+                      "name": "Coffee",
+                      "icon": "mdi:coffee",
+                      "show_brightness_control": true,
+                      "use_light_color": true
                     },
                     {
-                      "entity": "light.tz3210_zdrhqmo0_ts0502b_13",
-                      "name": "Spot 3"
-                    },
-                    {
-                      "entity": "light.tz3210_zdrhqmo0_ts0502b_15",
-                      "name": "Spot 4"
-                    },
-                    {
-                      "entity": "light.tz3210_zdrhqmo0_ts0502b_16",
-                      "name": "Spot 5"
-                    },
-                    {
-                      "entity": "light.tz3210_zdrhqmo0_ts0502b_19",
-                      "name": "Spot 6"
+                      "type": "custom:mushroom-light-card",
+                      "entity": "light.lights_kitchen_island_led",
+                      "name": "Island",
+                      "icon": "mdi:ceiling-light",
+                      "show_brightness_control": true,
+                      "use_light_color": true
                     }
                   ]
                 },
                 {
-                  "type": "custom:fold-entity-row",
-                  "head": null,
-                  "entity": "light.home_assistant_connect_zbt_2_kitchen_lights_trimless",
-                  "name": "Trimless",
-                  "icon": "mdi:led-strip",
+                  "type": "entities",
                   "entities": [
                     {
-                      "entity": "light.kitchen_lights_trimless_linear_1",
-                      "name": "Linear 1"
-                    },
-                    {
-                      "entity": "light.kitchen_lights_trimless_linear_2",
-                      "name": "Linear 2"
-                    },
-                    {
-                      "entity": "light.kitchen_lights_trimless_linear_3",
-                      "name": "Linear 3"
-                    },
-                    {
-                      "entity": "light.kitchen_lights_trimless_linear_4",
-                      "name": "Linear 4"
-                    },
-                    {
-                      "entity": "light.kitchen_lights_trimless_gimbal_1",
-                      "name": "Gimbal 1"
-                    },
-                    {
-                      "entity": "light.kitchen_lights_trimless_gimbal_2",
-                      "name": "Gimbal 2"
-                    },
-                    {
-                      "entity": "light.tz3210_uos3hl9x_ts0502b",
-                      "name": "Gimbal 3"
+                      "entity": "switch.lights_kitchen_countertop",
+                      "name": "Countertop Strip",
+                      "icon": "mdi:power-socket"
                     }
                   ]
                 }
@@ -862,6 +962,68 @@
                           "action": "more-info"
                         }
                       }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom:stack-in-card",
+              "cards": [
+                {
+                  "type": "custom:mushroom-template-card",
+                  "primary": "La Marzocco Micra",
+                  "secondary": "{% if is_state(\"binary_sensor.la_minea_micra_brewing_active\", \"on\") %}\n  Brewing · {{ states(\"number.la_minea_micra_coffee_target_temperature\") }}°C\n{% elif is_state(\"switch.la_minea_micra\", \"on\") %}\n  On · {{ states(\"number.la_minea_micra_coffee_target_temperature\") }}°C · Steam {{ states(\"select.la_minea_micra_steam_level\") }}\n{% else %}Off{% endif %}",
+                  "icon": "mdi:coffee",
+                  "icon_color": "{% if is_state(\"binary_sensor.la_minea_micra_brewing_active\", \"on\") %}red{% elif is_state(\"switch.la_minea_micra\", \"on\") %}brown{% else %}grey{% endif %}",
+                  "entity": "switch.la_minea_micra",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "type": "custom:mushroom-chips-card",
+                  "alignment": "start",
+                  "chips": [
+                    {
+                      "type": "entity",
+                      "entity": "switch.la_minea_micra",
+                      "icon": "mdi:power",
+                      "name": "Power"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "switch.la_minea_micra_steam_boiler",
+                      "icon": "mdi:kettle-steam",
+                      "name": "Steam"
+                    },
+                    {
+                      "type": "template",
+                      "icon": "mdi:water",
+                      "icon_color": "{% if is_state(\"binary_sensor.la_minea_micra_water_tank_empty\", \"on\") %}red{% else %}green{% endif %}",
+                      "content": "{% if is_state(\"binary_sensor.la_minea_micra_water_tank_empty\", \"on\") %}Empty{% else %}OK{% endif %}",
+                      "entity": "binary_sensor.la_minea_micra_water_tank_empty"
+                    },
+                    {
+                      "type": "template",
+                      "icon": "mdi:counter",
+                      "content": "{{ states(\"sensor.la_minea_micra_total_coffees_made\") }} coffees",
+                      "entity": "sensor.la_minea_micra_total_coffees_made"
+                    }
+                  ]
+                },
+                {
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "custom:mushroom-number-card",
+                      "entity": "number.la_minea_micra_coffee_target_temperature",
+                      "name": "Brew Temp °C"
+                    },
+                    {
+                      "type": "custom:mushroom-select-card",
+                      "entity": "select.la_minea_micra_steam_level",
+                      "name": "Steam Level"
                     }
                   ]
                 }
