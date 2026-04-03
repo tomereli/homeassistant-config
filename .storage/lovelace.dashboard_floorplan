@@ -34,14 +34,16 @@
                   "icon": "mdi:robot-vacuum"
                 },
                 {
-                  "type": "entity",
+                  "type": "template",
                   "entity": "person.masha",
-                  "use_entity_picture": true
+                  "picture": "/api/image/serve/4edf1ab5f293e0bb40f8f4c3189300b4/512x512",
+                  "content": "{{ states('sensor.masha_location') }}"
                 },
                 {
-                  "type": "entity",
+                  "type": "template",
                   "entity": "person.tomer",
-                  "use_entity_picture": true
+                  "picture": "/api/image/serve/bfe811dc4a21c5bc53e7fc6a5c0107bc/512x512",
+                  "content": "{{ states('sensor.tomer_location') }}"
                 },
                 {
                   "type": "template",

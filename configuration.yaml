@@ -25,6 +25,42 @@ shell_command:
   git_push: '/bin/bash -c "cd /config && /usr/bin/git push origin main"'
 
 template:
+  - sensor:
+      # Location sensors with GPS spoofing filter (war-related)
+      # GPS sometimes shows Jordan/Oman/Iraq due to military spoofing
+      # Filter: lon 35.9-100 is the 'dead zone' (Jordan through Iran)
+      # Real travel east of Israel starts at lon 100+ (Thailand, Japan, China)
+      # Everything west (Europe, Cyprus, Africa) is unaffected
+      - name: "Tomer Location"
+        state: >
+          {% set bssid = states('sensor.tomers_iphone_bssid') %}
+          {% set home_bssids = ['98:03:8E:9A:E5:9E', '98:03:8E:9A:E5:B6', 'E0:D3:62:AC:E6:20'] %}
+          {% set person = states('person.tomer') %}
+          {% set lon = state_attr('person.tomer', 'longitude') | float(0) %}
+          {% if bssid in home_bssids %}Home
+          {% elif lon > 35.9 and lon < 100 %}GPS Unreliable
+          {% else %}{{ person | replace('_', ' ') | title }}
+          {% endif %}
+        icon: >
+          {% set bssid = states('sensor.tomers_iphone_bssid') %}
+          {% set home_bssids = ['98:03:8E:9A:E5:9E', '98:03:8E:9A:E5:B6', 'E0:D3:62:AC:E6:20'] %}
+          {% set lon = state_attr('person.tomer', 'longitude') | float(0) %}
+          {% if bssid in home_bssids %}mdi:home-account
+          {% elif lon > 35.9 and lon < 100 %}mdi:crosshairs-question
+          {% else %}mdi:map-marker
+          {% endif %}
+      - name: "Masha Location"
+        state: >
+          {% set person = states('person.masha') %}
+          {% set lon = state_attr('person.masha', 'longitude') | float(0) %}
+          {% if lon > 35.9 and lon < 100 %}GPS Unreliable
+          {% else %}{{ person | replace('_', ' ') | title }}
+          {% endif %}
+        icon: >
+          {% set lon = state_attr('person.masha', 'longitude') | float(0) %}
+          {% if lon > 35.9 and lon < 100 %}mdi:crosshairs-question
+          {% else %}mdi:map-marker
+          {% endif %}
   - alarm_control_panel:
       - name: "Home Alarm"
         code_arm_required: false
@@ -32,7 +68,9 @@ template:
         state: >
           {% set s1 = states('alarm_control_panel.camera_hub_g3_547b_security_system_2') %}
           {% set s2 = states('alarm_control_panel.doorbell_repeater_aa37_security_system') %}
-          {% if s1 == s2 %}{{ s1 }}
+          {% if s2 in ['unavailable', 'unknown'] %}{{ s1 }}
+          {% elif s1 in ['unavailable', 'unknown'] %}{{ s2 }}
+          {% elif s1 == s2 %}{{ s1 }}
           {% else %}armed_custom_bypass
           {% endif %}
         arm_away:

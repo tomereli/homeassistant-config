@@ -45,19 +45,19 @@
   mode: single
 - id: '1771853128981'
   alias: 'Alarm: Away When Everyone Leaves'
-  description: ''
+  description: BSSID-based - GPS unreliable due to spoofing
   triggers:
   - trigger: state
-    entity_id:
-    - person.tomer
-    - person.masha
-    to: not_home
+    entity_id: sensor.tomers_iphone_bssid
   conditions:
-  - condition: template
-    value_template: '{{ states.person | selectattr(''state'', ''eq'', ''home'') |
-      list | length == 0 }}
-
-      '
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.tomers_iphone_bssid
+      state:
+      - 98:03:8E:9A:E5:9E
+      - 98:03:8E:9A:E5:B6
+      - E0:D3:62:AC:E6:20
   actions:
   - action: alarm_control_panel.alarm_arm_away
     target:
@@ -65,13 +65,17 @@
   mode: single
 - id: '1771853172731'
   alias: 'Alarm: Home When Someone Arrives'
-  description: ''
+  description: BSSID-based - GPS unreliable due to spoofing
   triggers:
   - trigger: state
-    entity_id:
-    - person.tomer
-    - person.masha
-    to: home
+    entity_id: sensor.tomers_iphone_bssid
+  conditions:
+  - condition: state
+    entity_id: sensor.tomers_iphone_bssid
+    state:
+    - 98:03:8E:9A:E5:9E
+    - 98:03:8E:9A:E5:B6
+    - E0:D3:62:AC:E6:20
   actions:
   - action: alarm_control_panel.alarm_arm_home
     target:
