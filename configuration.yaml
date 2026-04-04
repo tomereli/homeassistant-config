@@ -31,34 +31,86 @@ template:
       # Filter: lon 35.9-100 is the 'dead zone' (Jordan through Iran)
       # Real travel east of Israel starts at lon 100+ (Thailand, Japan, China)
       # Everything west (Europe, Cyprus, Africa) is unaffected
+      # 'Nearby' = within 500m of home/old home but not on home WiFi
+      # Home: 32.0678, 34.7843 | Old Home: 32.0685, 34.7852
       - name: "Tomer Location"
         state: >
           {% set bssid = states('sensor.tomers_iphone_bssid') %}
-          {% set home_bssids = ['98:03:8E:9A:E5:9E', '98:03:8E:9A:E5:B6', 'E0:D3:62:AC:E6:20'] %}
+          {% set home_bssid = bssid is defined and bssid | length > 14 and (bssid[:14] == '98:03:8e:9a:e5' or bssid[:14] == 'a2:03:8e:9a:e5' or bssid[:14] == 'e0:d3:62:ac:e6') %}
           {% set person = states('person.tomer') %}
+          {% set lat = state_attr('person.tomer', 'latitude') | float(0) %}
           {% set lon = state_attr('person.tomer', 'longitude') | float(0) %}
-          {% if bssid in home_bssids %}Home
+          {% set dist_home = ((lat - 32.0678)**2 + (lon - 34.7843)**2)**0.5 * 111000 %}
+          {% set dist_old = ((lat - 32.0685)**2 + (lon - 34.7852)**2)**0.5 * 111000 %}
+          {% set ssid = states('sensor.tomers_iphone_ssid') %}
+          {% set home_ssids = ['noobchi', 'Noobchi_2.4', 'noobchi_MLO'] %}
+          {% if home_bssid %}Home
+          {% elif ssid in home_ssids and not home_bssid %}Old Home
           {% elif lon > 35.9 and lon < 100 %}GPS Unreliable
+          {% elif person in ['Old Home', 'home'] and not home_bssid %}Nearby
+          {% elif person not in ['home', 'not_home'] %}{{ person | replace('_', ' ') | title }}
+          {% elif (dist_home < 150 or dist_old < 150) and not home_bssid %}Nearby
           {% else %}{{ person | replace('_', ' ') | title }}
           {% endif %}
         icon: >
           {% set bssid = states('sensor.tomers_iphone_bssid') %}
-          {% set home_bssids = ['98:03:8E:9A:E5:9E', '98:03:8E:9A:E5:B6', 'E0:D3:62:AC:E6:20'] %}
+          {% set home_bssid = bssid is defined and bssid | length > 14 and (bssid[:14] == '98:03:8e:9a:e5' or bssid[:14] == 'a2:03:8e:9a:e5' or bssid[:14] == 'e0:d3:62:ac:e6') %}
+          {% set lat = state_attr('person.tomer', 'latitude') | float(0) %}
           {% set lon = state_attr('person.tomer', 'longitude') | float(0) %}
-          {% if bssid in home_bssids %}mdi:home-account
+          {% set dist_home = ((lat - 32.0678)**2 + (lon - 34.7843)**2)**0.5 * 111000 %}
+          {% set dist_old = ((lat - 32.0685)**2 + (lon - 34.7852)**2)**0.5 * 111000 %}
+          {% set ssid = states('sensor.tomers_iphone_ssid') %}
+          {% set home_ssids = ['noobchi', 'Noobchi_2.4', 'noobchi_MLO'] %}
+          {% if home_bssid %}mdi:home-account
+          {% elif ssid in home_ssids and not home_bssid %}mdi:home-outline
           {% elif lon > 35.9 and lon < 100 %}mdi:crosshairs-question
+          {% elif dist_home < 150 or dist_old < 150 %}mdi:map-marker-radius
           {% else %}mdi:map-marker
+          {% endif %}
+      - name: "Anyone Home"
+        state: >
+          {% set tomer_bssid = states('sensor.tomers_iphone_bssid') %}
+          {% set masha_bssid = states('sensor.pixel_8_pro_wi_fi_bssid') %}
+          {% set masha_ssid = states('sensor.pixel_8_pro_wi_fi_connection') %}
+          {% set home_ssids = ['noobchi', 'Noobchi_2.4', 'noobchi_MLO'] %}
+          {% set masha_lat = state_attr('person.masha', 'latitude') | float(0) %}
+          {% set masha_lon = state_attr('person.masha', 'longitude') | float(0) %}
+          {% set masha_dist = ((masha_lat - 32.0678)**2 + (masha_lon - 34.7843)**2)**0.5 * 111000 %}
+          {% set tomer_home = tomer_bssid | length > 14 and (tomer_bssid[:14] == '98:03:8e:9a:e5' or tomer_bssid[:14] == 'a2:03:8e:9a:e5' or tomer_bssid[:14] == 'e0:d3:62:ac:e6') %}
+          {% set masha_home = (masha_bssid | length > 14 and (masha_bssid[:14] == '98:03:8e:9a:e5' or masha_bssid[:14] == 'a2:03:8e:9a:e5' or masha_bssid[:14] == 'e0:d3:62:ac:e6')) or (masha_ssid in home_ssids and masha_dist < 100) %}
+          {% if tomer_home or masha_home %}yes
+          {% else %}no
           {% endif %}
       - name: "Masha Location"
         state: >
           {% set person = states('person.masha') %}
+          {% set bssid = states('sensor.pixel_8_pro_wi_fi_bssid') %}
+          {% set ssid = states('sensor.pixel_8_pro_wi_fi_connection') %}
+          {% set home_bssid = bssid is defined and bssid | length > 14 and (bssid[:14] == '98:03:8e:9a:e5' or bssid[:14] == 'a2:03:8e:9a:e5' or bssid[:14] == 'e0:d3:62:ac:e6') %}
+          {% set home_ssids = ['noobchi', 'Noobchi_2.4', 'noobchi_MLO'] %}
+          {% set lat = state_attr('person.masha', 'latitude') | float(0) %}
           {% set lon = state_attr('person.masha', 'longitude') | float(0) %}
-          {% if lon > 35.9 and lon < 100 %}GPS Unreliable
+          {% set dist_home = ((lat - 32.0678)**2 + (lon - 34.7843)**2)**0.5 * 111000 %}
+          {% set dist_old = ((lat - 32.0685)**2 + (lon - 34.7852)**2)**0.5 * 111000 %}
+          {% if home_bssid %}Home
+          {% elif ssid in home_ssids and not home_bssid %}Old Home
+          {% elif lon > 35.9 and lon < 100 %}GPS Unreliable
+          {% elif (dist_home < 150 or dist_old < 150) %}Nearby
           {% else %}{{ person | replace('_', ' ') | title }}
           {% endif %}
         icon: >
+          {% set bssid = states('sensor.pixel_8_pro_wi_fi_bssid') %}
+          {% set ssid = states('sensor.pixel_8_pro_wi_fi_connection') %}
+          {% set home_bssid = bssid is defined and bssid | length > 14 and (bssid[:14] == '98:03:8e:9a:e5' or bssid[:14] == 'a2:03:8e:9a:e5' or bssid[:14] == 'e0:d3:62:ac:e6') %}
+          {% set home_ssids = ['noobchi', 'Noobchi_2.4', 'noobchi_MLO'] %}
+          {% set lat = state_attr('person.masha', 'latitude') | float(0) %}
           {% set lon = state_attr('person.masha', 'longitude') | float(0) %}
-          {% if lon > 35.9 and lon < 100 %}mdi:crosshairs-question
+          {% set dist_home = ((lat - 32.0678)**2 + (lon - 34.7843)**2)**0.5 * 111000 %}
+          {% set dist_old = ((lat - 32.0685)**2 + (lon - 34.7852)**2)**0.5 * 111000 %}
+          {% if home_bssid %}mdi:home-account
+          {% elif ssid in home_ssids and not home_bssid %}mdi:home-outline
+          {% elif lon > 35.9 and lon < 100 %}mdi:crosshairs-question
+          {% elif dist_home < 150 or dist_old < 150 %}mdi:map-marker-radius
           {% else %}mdi:map-marker
           {% endif %}
   - alarm_control_panel:

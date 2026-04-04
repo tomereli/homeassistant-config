@@ -37,13 +37,19 @@
                   "type": "template",
                   "entity": "person.masha",
                   "picture": "/api/image/serve/4edf1ab5f293e0bb40f8f4c3189300b4/512x512",
-                  "content": "{{ states('sensor.masha_location') }}"
+                  "content": "{{ states('sensor.masha_location') }}",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "template",
                   "entity": "person.tomer",
                   "picture": "/api/image/serve/bfe811dc4a21c5bc53e7fc6a5c0107bc/512x512",
-                  "content": "{{ states('sensor.tomer_location') }}"
+                  "content": "{{ states('sensor.tomer_location') }}",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
                 },
                 {
                   "type": "template",
@@ -425,8 +431,9 @@
               "camera_view": "live",
               "fit_mode": "cover",
               "type": "picture-entity",
-              "entity": "camera.doorbell_repeater_aa37",
-              "name": "Doorbell"
+              "entity": "camera.doorbell_repeater_3de9",
+              "name": "Doorbell",
+              "camera_image": "camera.doorbell_repeater_3de9"
             },
             {
               "type": "horizontal-stack",
@@ -441,7 +448,7 @@
                   "type": "custom:mushroom-entity-card",
                   "name": "Doorbell Motion",
                   "icon": "mdi:motion-sensor",
-                  "entity": "binary_sensor.doorbell_repeater_aa37_motion_sensor"
+                  "entity": "binary_sensor.doorbell_repeater_3de9_motion_sensor"
                 }
               ]
             },
@@ -515,7 +522,7 @@
                   "name": "Doorbell Keypad"
                 },
                 {
-                  "entity": "sensor.doorbell_repeater_aa37_battery_sensor",
+                  "entity": "sensor.doorbell_repeater_3de9_battery_sensor",
                   "name": "Doorbell Camera"
                 }
               ]
