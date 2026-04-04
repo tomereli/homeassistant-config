@@ -157,3 +157,38 @@
   - target:
       entity_id: light.home_assistant_connect_zbt_2_kitchen_lights_strips
     action: light.toggle
+- id: '1775338695345'
+  alias: Auto-reload unavailable integrations
+  description: Checks every 15 min, reloads unavailable cloud integrations if internet
+    is up
+  triggers:
+  - minutes: /15
+    trigger: time_pattern
+  - event: start
+    trigger: homeassistant
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.internet
+    state: 'on'
+  actions:
+  - delay:
+      minutes: '{{ 2 if trigger.platform == ''homeassistant'' else 0 }}'
+  - variables:
+      integrations:
+      - entity: vacuum.saros_10
+        entry_id: 01KH9EN8C3W4AT641QD3C9ATHT
+      - entity: sensor.aeg_oven_upperoven_appliancestate
+        entry_id: 01KJW29J584G2E0A7GM05BQK5Q
+      - entity: switch.la_minea_micra
+        entry_id: 01KMT6SZF6YTQ7ANVEM4CC5GV8
+  - repeat:
+      for_each: '{{ integrations }}'
+      sequence:
+      - condition: template
+        value_template: '{{ states(repeat.item.entity) == ''unavailable'' }}'
+      - action: homeassistant.reload_config_entry
+        data:
+          entry_id: '{{ repeat.item.entry_id }}'
+      - delay:
+          seconds: 15
+  mode: single
