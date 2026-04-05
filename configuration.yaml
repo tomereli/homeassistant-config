@@ -150,3 +150,8 @@ template:
                 - alarm_control_panel.camera_hub_g3_547b_security_system_2
                 - alarm_control_panel.doorbell_repeater_aa37_security_system
 
+
+logger:
+  default: warning
+  logs:
+    custom_components.localtuya: debug

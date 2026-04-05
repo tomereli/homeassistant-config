@@ -1545,39 +1545,14 @@
               "compact_view": false
             },
             {
-              "type": "custom:mushroom-title-card",
-              "title": "Garage"
-            },
-            {
-              "type": "horizontal-stack",
-              "cards": [
+              "type": "entities",
+              "entities": [
                 {
-                  "type": "custom:mushroom-template-card",
-                  "primary": "Open Garage",
-                  "icon": "mdi:garage-open",
-                  "icon_color": "green",
-                  "tap_action": {
-                    "action": "call-service",
-                    "service": "script.turn_on",
-                    "target": {
-                      "entity_id": "script.open_robot_garage_safe"
-                    }
-                  }
-                },
-                {
-                  "type": "custom:mushroom-template-card",
-                  "primary": "Close Garage",
-                  "icon": "mdi:garage",
-                  "icon_color": "red",
-                  "tap_action": {
-                    "action": "call-service",
-                    "service": "script.turn_on",
-                    "target": {
-                      "entity_id": "script.close_robot_garage_safe"
-                    }
-                  }
+                  "entity": "cover.garage_door",
+                  "name": "Garage Door"
                 }
-              ]
+              ],
+              "title": "motor controller"
             },
             {
               "type": "custom:mushroom-title-card",
