@@ -488,12 +488,8 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.camera_hub_g3_547b_mute_3",
+                  "entity": "switch.camera_hub_g3_547b_mute_4",
                   "name": "G3 Mute"
-                },
-                {
-                  "entity": "switch.doorbell_repeater_aa37_mute",
-                  "name": "Doorbell Mute"
                 }
               ]
             },
